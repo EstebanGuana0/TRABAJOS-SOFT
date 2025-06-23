@@ -41,7 +41,7 @@ function App() {
     useEffect(() => {
         if (intentos >= 3) {
             setBloqueado(true); // Bloqueamos el botón
-            setError("Demasiados intentos. Bloqueado por 10 segundos.");
+            setError("❌ Demasiados intentos. Bloqueado por 10 segundos.");
 
             // Después de 10 segundos, Se desbrloquea e inicia sesion
             const timer = setTimeout(() => {
@@ -81,7 +81,7 @@ function App() {
                 const datos = await obtenerDatosUsuario();
                 setPerfil(datos); // Guardamos el perfil en el estado
             } catch (err) {
-                setError("Error al obtener datos."); // En caso de error en la API simulada
+                setError("❌ Error al obtener datos."); // En caso de error en la API simulada
             } finally {
                 setCargando(false); // Quitamos mensaje de carga
                 setIntentos(0);     // Reiniciamos los intentos fallidos
@@ -89,7 +89,7 @@ function App() {
         } else {
             // Si las credenciales son incorrectas, aumentamos el contador y mostramos error
             setIntentos((prev) => prev + 1);
-            setError("Credenciales incorrectas.");
+            setError("❌ Credenciales incorrectas.");
         }
     };
 
@@ -100,7 +100,7 @@ function App() {
                 {/* Si no hay perfil, mostramos el formulario */}
                 {!perfil ? (
                     <form onSubmit={manejarLogin}>
-                        <h1 className="text-xl font-bold mb-4"> Iniciar Sesión</h1>
+                        <h1 className="text-xl font-bold mb-4"> 🔐 Iniciar Sesión</h1>
 
                         <input
                             type="text"
